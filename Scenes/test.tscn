@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmcwv3ptjftjt"]
+
+[ext_resource type="PackedScene" uid="uid://86pndnv3ubws" path="res://character.tscn" id="1_ys1qc"]
+[ext_resource type="PackedScene" uid="uid://bkx5sofqgf427" path="res://Assets/floor.tscn" id="2_35xla"]
+[ext_resource type="PackedScene" uid="uid://bfkao1452k3ka" path="res://Assets/wall.tscn" id="3_i3aeo"]
+[ext_resource type="PackedScene" uid="uid://bdo0hm65pemj2" path="res://Assets/platform.tscn" id="4_5wyu1"]
+
+[node name="Scene" type="Node2D"]
+metadata/movie_file = "C:\\Users\\esteb\\Desktop\\mini-jam-197\\demo.avi"
+
+[node name="Mouse" parent="." instance=ExtResource("1_ys1qc")]
+position = Vector2(81, 279)
+platform_on_leave = 2
+
+[node name="Floor" parent="." instance=ExtResource("2_35xla")]
+position = Vector2(603, 691)
+
+[node name="Wall" parent="." instance=ExtResource("3_i3aeo")]
+position = Vector2(-7, 433)
+
+[node name="Wall2" parent="." instance=ExtResource("3_i3aeo")]
+position = Vector2(1214, 447)
+
+[node name="Wall3" parent="." instance=ExtResource("3_i3aeo")]
+position = Vector2(-174, 374)
+rotation = 1.5707964
+
+[node name="Platform" parent="." instance=ExtResource("4_5wyu1")]
+position = Vector2(411, 402)
+vertical_movement = false
+
+[node name="Wall4" parent="." instance=ExtResource("3_i3aeo")]
+position = Vector2(1101, 374)
+rotation = 1.5707964
+
+[node name="Platform2" parent="." instance=ExtResource("4_5wyu1")]
+position = Vector2(514, 402)

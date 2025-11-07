@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdo0hm65pemj2"]
+
+[ext_resource type="Script" uid="uid://uq6hn8yw32oh" path="res://Scripts/platform.gd" id="1_mi635"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ajho"]
+size = Vector2(100, 100)
+
+[sub_resource type="Gradient" id="Gradient_5ajho"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mi635"]
+gradient = SubResource("Gradient_5ajho")
+
+[node name="Platform" type="AnimatableBody2D"]
+input_pickable = true
+script = ExtResource("1_mi635")
+vertical_movement = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5ajho")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -3.8146973e-06)
+scale = Vector2(0.390625, 100)
+texture = SubResource("GradientTexture1D_mi635")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
