@@ -3,16 +3,18 @@
 [ext_resource type="Script" uid="uid://bwphecaqvp8kd" path="res://Scripts/movement.gd" id="1_hs5vj"]
 [ext_resource type="Texture2D" uid="uid://b5pjprg58bbby" path="res://icon.svg" id="1_njpxk"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hs5vj"]
-size = Vector2(60, 60)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pjt0s"]
+radius = 29.0
+height = 58.0
 
 [node name="Mouse" type="CharacterBody2D"]
+collision_layer = 0
 script = ExtResource("1_hs5vj")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_hs5vj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-0.04688291, 5.9604645e-08)
 scale = Vector2(0.4694825, 0.46875)
 texture = ExtResource("1_njpxk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_pjt0s")

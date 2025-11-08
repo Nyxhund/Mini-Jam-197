@@ -17,6 +17,10 @@ func reset():
 	set_position(spawn_point.position)
 	velocity = Vector2(0.0, 0.0)
 	move_and_slide()
+	$CollisionShape2D.set_disabled(false)
+	
+func move_to_spawn():
+	set_position(spawn_point.position)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -43,6 +47,9 @@ func _physics_process(delta: float) -> void:
 			if node and node is AnimatableBody2D and node.buttonPressed:
 				velocity = Vector2(0, 0)
 			
-			if node and node.has_meta("cheese"):
+			if node and node.has_meta("cheese") and node.get_meta("cheese"):
 				foundCheese = true
+				node.set_meta("cheese", false)
+				node.get_node("CollisionShape2D").set_disabled(true)
+				$CollisionShape2D.set_disabled(true)
 	move_and_slide()

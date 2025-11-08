@@ -24,9 +24,10 @@ func reset() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if recording:
-		placement.append(position)
+		placement.append([position, buttonPressed])
 	else:
-		set_position(placement[index])
+		set_position(placement[index][0])
+		buttonPressed = placement[index][1]
 		index += 1
 		if index == len(placement):
 			index -= 1
@@ -44,7 +45,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				mult = 1
 
 			if recording:
-				translate(Vector2((1 - mult) * (event.position.x - prevPosition.x), mult * (event.position.y - prevPosition.y)))
+				move_and_collide(Vector2((1 - mult) * (event.position.x - prevPosition.x), mult * (event.position.y - prevPosition.y)))
 				prevPosition = event.position
 	
 	if event.is_action_pressed("left_click"):
