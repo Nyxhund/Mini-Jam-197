@@ -4,16 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://b5pjprg58bbby" path="res://icon.svg" id="1_njpxk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hs5vj"]
-size = Vector2(56, 55)
+size = Vector2(60, 60)
 
 [node name="Mouse" type="CharacterBody2D"]
 script = ExtResource("1_hs5vj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.1875267, -0.18750381)
 shape = SubResource("RectangleShape2D_hs5vj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-2.3841858e-07, -2.3841858e-07)
-scale = Vector2(0.47021505, 0.4790039)
+position = Vector2(-0.04688291, 5.9604645e-08)
+scale = Vector2(0.4694825, 0.46875)
 texture = ExtResource("1_njpxk")

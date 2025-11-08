@@ -14,6 +14,7 @@ gradient = SubResource("Gradient_5ajho")
 
 [node name="Platform" type="AnimatableBody2D"]
 input_pickable = true
+sync_to_physics = false
 script = ExtResource("1_mi635")
 vertical_movement = true
 

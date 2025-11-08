@@ -1,16 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmcwv3ptjftjt"]
+[gd_scene load_steps=7 format=3 uid="uid://dmcwv3ptjftjt"]
 
+[ext_resource type="Script" uid="uid://cm06sinuw8vk8" path="res://Scripts/manager.gd" id="1_i3aeo"]
 [ext_resource type="PackedScene" uid="uid://86pndnv3ubws" path="res://character.tscn" id="1_ys1qc"]
 [ext_resource type="PackedScene" uid="uid://bkx5sofqgf427" path="res://Assets/floor.tscn" id="2_35xla"]
 [ext_resource type="PackedScene" uid="uid://bfkao1452k3ka" path="res://Assets/wall.tscn" id="3_i3aeo"]
 [ext_resource type="PackedScene" uid="uid://bdo0hm65pemj2" path="res://Assets/platform.tscn" id="4_5wyu1"]
+[ext_resource type="PackedScene" uid="uid://dhhdiabd2m5sf" path="res://Assets/cheese.tscn" id="5_35xla"]
 
-[node name="Scene" type="Node2D"]
+[node name="Scene" type="Node2D" node_paths=PackedStringArray("mouse_list", "platform_list", "label")]
+script = ExtResource("1_i3aeo")
+mouse_list = [NodePath("Mouse"), NodePath("Mouse2"), NodePath("Mouse3")]
+platform_list = [NodePath("Platform"), NodePath("Platform2")]
+label = NodePath("Label")
 metadata/movie_file = "C:\\Users\\esteb\\Desktop\\mini-jam-197\\demo.avi"
 
-[node name="Mouse" parent="." instance=ExtResource("1_ys1qc")]
-position = Vector2(81, 279)
-platform_on_leave = 2
+[node name="Label" type="Label" parent="."]
+offset_left = 156.0
+offset_top = 103.0
+offset_right = 358.0
+offset_bottom = 161.0
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Floor" parent="." instance=ExtResource("2_35xla")]
 position = Vector2(603, 691)
@@ -22,16 +32,63 @@ position = Vector2(-7, 433)
 position = Vector2(1214, 447)
 
 [node name="Wall3" parent="." instance=ExtResource("3_i3aeo")]
-position = Vector2(-174, 374)
+position = Vector2(-177, 485)
 rotation = 1.5707964
 
 [node name="Platform" parent="." instance=ExtResource("4_5wyu1")]
-position = Vector2(411, 402)
+position = Vector2(408, 513)
 vertical_movement = false
 
 [node name="Wall4" parent="." instance=ExtResource("3_i3aeo")]
-position = Vector2(1101, 374)
+position = Vector2(1098, 485)
 rotation = 1.5707964
 
 [node name="Platform2" parent="." instance=ExtResource("4_5wyu1")]
-position = Vector2(514, 402)
+position = Vector2(511, 513)
+
+[node name="Wall5" parent="." instance=ExtResource("3_i3aeo")]
+position = Vector2(817, 190)
+rotation = 1.5707964
+
+[node name="Mouse" parent="." node_paths=PackedStringArray("spawn_point") instance=ExtResource("1_ys1qc")]
+position = Vector2(-350, 425)
+spawn_point = NodePath("../SpawnPoints/Spawn 1")
+
+[node name="Mouse2" parent="." node_paths=PackedStringArray("spawn_point") instance=ExtResource("1_ys1qc")]
+position = Vector2(-278, 426)
+spawn_point = NodePath("../SpawnPoints/Spawn 2")
+
+[node name="Mouse3" parent="." node_paths=PackedStringArray("spawn_point") instance=ExtResource("1_ys1qc")]
+position = Vector2(-198, 426)
+spawn_point = NodePath("../SpawnPoints/Spawn 3")
+
+[node name="SpawnPoints" type="Node" parent="."]
+
+[node name="Spawn 3" type="Node2D" parent="SpawnPoints"]
+position = Vector2(38, 410)
+
+[node name="Spawn 2" type="Node2D" parent="SpawnPoints"]
+position = Vector2(163, 411)
+
+[node name="Spawn 1" type="Node2D" parent="SpawnPoints"]
+position = Vector2(284, 414)
+
+[node name="Platform 1" type="Node2D" parent="SpawnPoints"]
+position = Vector2(408, 513)
+
+[node name="Platform 2" type="Node2D" parent="SpawnPoints"]
+position = Vector2(511, 513)
+
+[node name="Cheese" type="Node" parent="."]
+
+[node name="Cheese 1" parent="Cheese" instance=ExtResource("5_35xla")]
+position = Vector2(1123, 629)
+metadata/cheese = true
+
+[node name="Cheese 2" parent="Cheese" instance=ExtResource("5_35xla")]
+position = Vector2(1134, 144)
+metadata/cheese = true
+
+[node name="Cheese 3" parent="Cheese" instance=ExtResource("5_35xla")]
+position = Vector2(1131, 436)
+metadata/cheese = true
