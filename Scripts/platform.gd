@@ -52,3 +52,4 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		commit = true
 		prevPosition = event.position
 		buttonPressed = true
+		print("Button pressed")

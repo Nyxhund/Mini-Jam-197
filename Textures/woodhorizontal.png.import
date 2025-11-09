@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gnwjxiak7c4c"
-path="res://.godot/imported/mousefssb.png-ca5d7a724dd74dfae5f6eb46a9eb2ea1.ctex"
+uid="uid://boi7mvna4dv2o"
+path="res://.godot/imported/woodhorizontal.png-d70a2c1dd49457e302f8d59ae30f907f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/mousefssb.png"
-dest_files=["res://.godot/imported/mousefssb.png-ca5d7a724dd74dfae5f6eb46a9eb2ea1.ctex"]
+source_file="res://Textures/woodhorizontal.png"
+dest_files=["res://.godot/imported/woodhorizontal.png-d70a2c1dd49457e302f8d59ae30f907f.ctex"]
 
 [params]
 

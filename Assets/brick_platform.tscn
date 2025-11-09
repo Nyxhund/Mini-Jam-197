@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkx5sofqgf427"]
+[gd_scene load_steps=3 format=3 uid="uid://8j1q2r63qjfe"]
 
-[ext_resource type="Texture2D" uid="uid://btel2klq0phyd" path="res://Textures/grasshoriz.png" id="1_dc5ec"]
+[ext_resource type="Texture2D" uid="uid://dpo75mgqo25h7" path="res://Textures/brick.png" id="1_ko7ow"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_37kl0"]
 size = Vector2(1587, 99)
@@ -10,77 +10,77 @@ size = Vector2(1587, 99)
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-7.6293945e-06, -0.5)
 scale = Vector2(0.017666664, 0.0165)
-texture = ExtResource("1_dc5ec")
+texture = ExtResource("1_ko7ow")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(105.99999, -0.5)
 scale = Vector2(0.017666664, 0.0165)
-texture = ExtResource("1_dc5ec")
+texture = ExtResource("1_ko7ow")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
 position = Vector2(212, -0.5)
 scale = Vector2(0.017666664, 0.0165)
-texture = ExtResource("1_dc5ec")
+texture = ExtResource("1_ko7ow")
 
 [node name="Sprite2D4" type="Sprite2D" parent="."]
 position = Vector2(318, -0.5)
 scale = Vector2(0.017666664, 0.0165)
-texture = ExtResource("1_dc5ec")
+texture = ExtResource("1_ko7ow")
 
 [node name="Sprite2D5" type="Sprite2D" parent="."]
 position = Vector2(424, -0.5)
 scale = Vector2(0.017666664, 0.0165)
-texture = ExtResource("1_dc5ec")
+texture = ExtResource("1_ko7ow")
 
 [node name="Sprite2D6" type="Sprite2D" parent="."]
 position = Vector2(530, -0.5)
 scale = Vector2(0.017666664, 0.0165)
-texture = ExtResource("1_dc5ec")
+texture = ExtResource("1_ko7ow")
 
 [node name="Sprite2D7" type="Sprite2D" parent="."]
 position = Vector2(636, -0.5)
 scale = Vector2(0.017666664, 0.0165)
-texture = ExtResource("1_dc5ec")
+texture = ExtResource("1_ko7ow")
 
 [node name="Sprite2D8" type="Sprite2D" parent="."]
 position = Vector2(742, -0.5)
 scale = Vector2(0.017666664, 0.0165)
-texture = ExtResource("1_dc5ec")
+texture = ExtResource("1_ko7ow")
 
 [node name="Sprite2D9" type="Sprite2D" parent="."]
 position = Vector2(-424, -0.5)
 scale = Vector2(0.017666664, 0.0165)
-texture = ExtResource("1_dc5ec")
+texture = ExtResource("1_ko7ow")
 
 [node name="Sprite2D10" type="Sprite2D" parent="."]
 position = Vector2(-318, -0.5)
 scale = Vector2(0.017666664, 0.0165)
-texture = ExtResource("1_dc5ec")
+texture = ExtResource("1_ko7ow")
 
 [node name="Sprite2D13" type="Sprite2D" parent="."]
 position = Vector2(-636, -0.5)
 scale = Vector2(0.017666664, 0.0165)
-texture = ExtResource("1_dc5ec")
+texture = ExtResource("1_ko7ow")
 
 [node name="Sprite2D15" type="Sprite2D" parent="."]
 position = Vector2(-742, -1)
 scale = Vector2(0.017666664, 0.0165)
-texture = ExtResource("1_dc5ec")
+texture = ExtResource("1_ko7ow")
 
 [node name="Sprite2D14" type="Sprite2D" parent="."]
 position = Vector2(-530, -0.5)
 scale = Vector2(0.017666664, 0.0165)
-texture = ExtResource("1_dc5ec")
+texture = ExtResource("1_ko7ow")
 
 [node name="Sprite2D11" type="Sprite2D" parent="."]
 position = Vector2(-212, -0.5)
 scale = Vector2(0.017666664, 0.0165)
-texture = ExtResource("1_dc5ec")
+texture = ExtResource("1_ko7ow")
 
 [node name="Sprite2D12" type="Sprite2D" parent="."]
 position = Vector2(-106, -0.5)
 scale = Vector2(0.017666664, 0.0165)
-texture = ExtResource("1_dc5ec")
+texture = ExtResource("1_ko7ow")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

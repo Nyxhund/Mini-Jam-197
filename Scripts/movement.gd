@@ -43,9 +43,13 @@ func _physics_process(delta: float) -> void:
 		if collision:
 			var node = collision.get_collider()
 
-			# with a movabler platform object, check if it is moving
-			if node and node is AnimatableBody2D and node.buttonPressed:
-				velocity = Vector2(0, 0)
+			# with a movable platform object, check if it is moving
+			
+			if node and node is AnimatableBody2D:
+				
+				if  node.buttonPressed:
+					velocity = Vector2(0, 0)
+					#print("Collision with animatable ", node.buttonPressed)
 			
 			if node and node.has_meta("cheese") and node.get_meta("cheese"):
 				foundCheese = true

@@ -1,22 +1,77 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfkao1452k3ka"]
+[gd_scene load_steps=3 format=3 uid="uid://bfkao1452k3ka"]
+
+[ext_resource type="Texture2D" uid="uid://bxq7rx8t2uoe4" path="res://Textures/stone.png" id="1_vnsvt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oh6kn"]
-size = Vector2(40, 765.75)
-
-[sub_resource type="Gradient" id="Gradient_oh6kn"]
-offsets = PackedFloat32Array(0, 0.08695652)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_xxgf6"]
-gradient = SubResource("Gradient_oh6kn")
+size = Vector2(100, 1301)
 
 [node name="Wall" type="StaticBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, -148.125)
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_oh6kn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-2.0000038, -147.99998)
-scale = Vector2(0.15625, 766)
-texture = SubResource("GradientTexture1D_xxgf6")
+position = Vector2(-7.987022e-06, 0)
+scale = Vector2(0.01666667, 0.016749995)
+texture = ExtResource("1_vnsvt")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(0, -100)
+scale = Vector2(0.01666667, 0.016749995)
+texture = ExtResource("1_vnsvt")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(7.2717667e-06, -200.75002)
+scale = Vector2(0.01666667, 0.016749995)
+texture = ExtResource("1_vnsvt")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(1.5258789e-05, -300.75)
+scale = Vector2(0.01666667, 0.016749995)
+texture = ExtResource("1_vnsvt")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(7.2717667e-06, -400.75)
+scale = Vector2(0.01666667, 0.016749995)
+texture = ExtResource("1_vnsvt")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+position = Vector2(1.5258789e-05, -500.75)
+scale = Vector2(0.01666667, 0.016749995)
+texture = ExtResource("1_vnsvt")
+
+[node name="Sprite2D13" type="Sprite2D" parent="."]
+position = Vector2(0, -601)
+scale = Vector2(0.01666667, 0.016749995)
+texture = ExtResource("1_vnsvt")
+
+[node name="Sprite2D7" type="Sprite2D" parent="."]
+position = Vector2(7.6293945e-06, 501)
+scale = Vector2(0.01666667, 0.016749995)
+texture = ExtResource("1_vnsvt")
+
+[node name="Sprite2D12" type="Sprite2D" parent="."]
+position = Vector2(0, 601)
+scale = Vector2(0.01666667, 0.016749995)
+texture = ExtResource("1_vnsvt")
+
+[node name="Sprite2D8" type="Sprite2D" parent="."]
+position = Vector2(1.4781952e-05, 400.25)
+scale = Vector2(0.01666667, 0.016749995)
+texture = ExtResource("1_vnsvt")
+
+[node name="Sprite2D9" type="Sprite2D" parent="."]
+position = Vector2(2.2888184e-05, 300.25)
+scale = Vector2(0.01666667, 0.016749995)
+texture = ExtResource("1_vnsvt")
+
+[node name="Sprite2D10" type="Sprite2D" parent="."]
+position = Vector2(1.4781952e-05, 200.24998)
+scale = Vector2(0.01666667, 0.016749995)
+texture = ExtResource("1_vnsvt")
+
+[node name="Sprite2D11" type="Sprite2D" parent="."]
+position = Vector2(2.2888184e-05, 100.249985)
+scale = Vector2(0.01666667, 0.016749995)
+texture = ExtResource("1_vnsvt")

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bdo0hm65pemj2" path="res://Assets/platform.tscn" id="4_t7v2y"]
 [ext_resource type="PackedScene" uid="uid://86pndnv3ubws" path="res://character.tscn" id="5_ait6c"]
 [ext_resource type="PackedScene" uid="uid://dhhdiabd2m5sf" path="res://Assets/cheese.tscn" id="6_vcilj"]
-[ext_resource type="Texture2D" uid="uid://gnwjxiak7c4c" path="res://Assets/mousefssb.png" id="7_bl0du"]
+[ext_resource type="Texture2D" uid="uid://gnwjxiak7c4c" path="res://Textures/mousefssb.png" id="7_bl0du"]
 [ext_resource type="FontFile" uid="uid://bqiu1vk0wta86" path="res://font.ttf" id="8_q0ycs"]
 
 [node name="Scene" type="Node2D" node_paths=PackedStringArray("mouse_list", "platform_list", "cheese_list", "tutorial", "label")]
@@ -118,3 +118,5 @@ position = Vector2(531, 315)
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="Button2" to="." method="start_stage"]
+
+[editable path="Platform"]
