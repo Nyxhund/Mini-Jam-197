@@ -38,3 +38,14 @@ theme_override_font_sizes/font_size = 160
 text = "That's all for now folks !
 Hope you enjoyed !"
 horizontal_alignment = 2
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 147.0
+offset_top = 3043.0
+offset_right = 2692.0
+offset_bottom = 3539.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_wpex3")
+theme_override_font_sizes/font_size = 160
+text = "By Sheinxy,
+Kiloup and Nyxhund"

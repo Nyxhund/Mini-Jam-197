@@ -237,7 +237,7 @@ vertical_alignment = 1
 position = Vector2(1185, 1530)
 
 [node name="Platform" parent="." instance=ExtResource("10_w8kbg")]
-position = Vector2(1500, 835)
+position = Vector2(1500, 940)
 
 [node name="Platform2" parent="." instance=ExtResource("10_w8kbg")]
 position = Vector2(1500, 520)
@@ -270,6 +270,9 @@ position = Vector2(590, 730)
 
 [node name="Floor2" parent="." instance=ExtResource("15_gxyip")]
 position = Vector2(490, 730)
+
+[node name="Floor3" parent="." instance=ExtResource("4_3v663")]
+position = Vector2(1455, 835)
 
 [connection signal="button_down" from="Rest" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="Tutorial" to="." method="start_stage"]
