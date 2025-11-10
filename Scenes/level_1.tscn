@@ -1,24 +1,21 @@
 [gd_scene load_steps=18 format=3 uid="uid://dmcwv3ptjftjt"]
 
-[ext_resource type="Script" uid="uid://cm06sinuw8vk8" path="res://Scripts/manager.gd" id="1_i3aeo"]
-[ext_resource type="PackedScene" uid="uid://86pndnv3ubws" path="res://character.tscn" id="1_ys1qc"]
-[ext_resource type="PackedScene" uid="uid://bkx5sofqgf427" path="res://Assets/floor.tscn" id="2_35xla"]
-[ext_resource type="PackedScene" uid="uid://bfkao1452k3ka" path="res://Assets/wall.tscn" id="3_i3aeo"]
-[ext_resource type="Texture2D" uid="uid://ccilve6im406q" path="res://Textures/brickyellow.png" id="3_iaow0"]
-[ext_resource type="PackedScene" uid="uid://bdo0hm65pemj2" path="res://Assets/platform.tscn" id="4_5wyu1"]
-[ext_resource type="PackedScene" uid="uid://dhhdiabd2m5sf" path="res://Assets/cheese.tscn" id="5_35xla"]
-[ext_resource type="Texture2D" uid="uid://gnwjxiak7c4c" path="res://Textures/mousefssb.png" id="7_5wyu1"]
-[ext_resource type="FontFile" uid="uid://bqiu1vk0wta86" path="res://font.ttf" id="8_0c07c"]
-[ext_resource type="PackedScene" uid="uid://8j1q2r63qjfe" path="res://Assets/brick_platform.tscn" id="9_2cgwh"]
+[ext_resource type="Script" uid="uid://cm06sinuw8vk8" path="res://Scripts/manager.gd" id="1_chwpn"]
+[ext_resource type="PackedScene" uid="uid://dhhdiabd2m5sf" path="res://Assets/cheese.tscn" id="2_af3po"]
+[ext_resource type="PackedScene" uid="uid://bdo0hm65pemj2" path="res://Assets/platform.tscn" id="3_uy8f0"]
+[ext_resource type="Texture2D" uid="uid://ccilve6im406q" path="res://Textures/brickyellow.png" id="4_6r07y"]
+[ext_resource type="PackedScene" uid="uid://bkx5sofqgf427" path="res://Assets/floor.tscn" id="5_6ioyp"]
+[ext_resource type="PackedScene" uid="uid://86pndnv3ubws" path="res://character.tscn" id="6_oovug"]
+[ext_resource type="PackedScene" uid="uid://8j1q2r63qjfe" path="res://Assets/brick_platform.tscn" id="7_8i23i"]
+[ext_resource type="PackedScene" uid="uid://bfkao1452k3ka" path="res://Assets/wall.tscn" id="8_8yhm2"]
+[ext_resource type="Texture2D" uid="uid://gnwjxiak7c4c" path="res://Textures/mousefssb.png" id="9_pjppf"]
+[ext_resource type="FontFile" uid="uid://bqiu1vk0wta86" path="res://font.ttf" id="10_yltlr"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iaow0"]
-bg_color = Color(0.6, 0.6, 0.6, 0.74509805)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_chwpn"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qpfo2"]
-bg_color = Color(0.6, 0.6, 0.6, 0.74509805)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_af3po"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yb21e"]
-bg_color = Color(0.6, 0.6, 0.6, 0.74509805)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uy8f0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aees8"]
 
@@ -32,7 +29,7 @@ colors = PackedColorArray(0, 0, 0, 1)
 gradient = SubResource("Gradient_iaow0")
 
 [node name="Scene" type="Node2D" node_paths=PackedStringArray("mouse_list", "platform_list", "cheese_list", "tutorial", "label", "cheese_spawns_one", "cheese_spawns_two", "cheese_spawns_three")]
-script = ExtResource("1_i3aeo")
+script = ExtResource("1_chwpn")
 mouse_list = [NodePath("Mouse/Mouse"), NodePath("Mouse/Mouse2"), NodePath("Mouse/Mouse3")]
 platform_list = [NodePath("Platform"), NodePath("Platform2")]
 cheese_list = [NodePath("Cheese/Cheese 1"), NodePath("Cheese/Cheese 2"), NodePath("Cheese/Cheese 3")]
@@ -41,33 +38,35 @@ label = NodePath("Tutorial/Label")
 cheese_spawns_one = [NodePath("SpawnPoints/Cheese 1")]
 cheese_spawns_two = [NodePath("SpawnPoints/Cheese 1"), NodePath("SpawnPoints/Cheese 2")]
 cheese_spawns_three = [NodePath("SpawnPoints/Cheese 1"), NodePath("SpawnPoints/Cheese 2"), NodePath("SpawnPoints/Cheese 3")]
+dialog_path = "res://Scenes/level_1_dialog.json"
+current_scene = "res://Scenes/level_1.tscn"
 metadata/movie_file = "C:\\Users\\esteb\\Desktop\\mini-jam-197\\demo.avi"
 
-[node name="Cheese" type="Node" parent="."]
+[node name="Cheese" type="Node2D" parent="."]
 
-[node name="Cheese 1" parent="Cheese" instance=ExtResource("5_35xla")]
+[node name="Cheese 1" parent="Cheese" instance=ExtResource("2_af3po")]
 position = Vector2(1566, 373)
 metadata/cheese = true
 
-[node name="Cheese 2" parent="Cheese" instance=ExtResource("5_35xla")]
+[node name="Cheese 2" parent="Cheese" instance=ExtResource("2_af3po")]
 position = Vector2(1357, 112)
 metadata/cheese = true
 
-[node name="Cheese 3" parent="Cheese" instance=ExtResource("5_35xla")]
+[node name="Cheese 3" parent="Cheese" instance=ExtResource("2_af3po")]
 position = Vector2(1357, 373)
 metadata/cheese = true
 
-[node name="Platform" parent="." instance=ExtResource("4_5wyu1")]
+[node name="Platform" parent="." instance=ExtResource("3_uy8f0")]
 position = Vector2(527, 458)
 vertical_movement = false
 
-[node name="Sprite2D" parent="Platform" index="1"]
-texture = ExtResource("3_iaow0")
+[node name="Sprite2D" parent="Platform" index="0"]
+texture = ExtResource("4_6r07y")
 
-[node name="Platform2" parent="." instance=ExtResource("4_5wyu1")]
+[node name="Platform2" parent="." instance=ExtResource("3_uy8f0")]
 position = Vector2(630, 458)
 
-[node name="Floor" parent="." instance=ExtResource("2_35xla")]
+[node name="Floor" parent="." instance=ExtResource("5_6ioyp")]
 position = Vector2(603, 691)
 
 [node name="SpawnPoints" type="Node" parent="."]
@@ -81,85 +80,79 @@ position = Vector2(229, 355)
 [node name="Spawn 1" type="Node2D" parent="SpawnPoints"]
 position = Vector2(371, 355)
 
-[node name="Platform 1" type="Node2D" parent="SpawnPoints"]
-position = Vector2(527, 458)
-
-[node name="Platform 2" type="Node2D" parent="SpawnPoints"]
-position = Vector2(630, 458)
-
 [node name="Cheese 1" type="Node2D" parent="SpawnPoints"]
-position = Vector2(1105, 103.00001)
+position = Vector2(1104, 120)
 
 [node name="Cheese 2" type="Node2D" parent="SpawnPoints"]
-position = Vector2(1093, 612)
+position = Vector2(1096, 616)
 
 [node name="Cheese 3" type="Node2D" parent="SpawnPoints"]
-position = Vector2(1096, 368)
+position = Vector2(1096, 384)
 
 [node name="Reset" type="Button" parent="."]
 offset_left = 180.0
 offset_top = 118.0
 offset_right = 287.0
 offset_bottom = 205.0
+theme_override_fonts/font = ExtResource("10_yltlr")
 text = "RESET"
 
 [node name="Mouse" type="Node2D" parent="."]
 
-[node name="Mouse" parent="Mouse" node_paths=PackedStringArray("spawn_point") instance=ExtResource("1_ys1qc")]
+[node name="Mouse" parent="Mouse" node_paths=PackedStringArray("spawn_point") instance=ExtResource("6_oovug")]
 position = Vector2(-331, 381)
 spawn_point = NodePath("../../SpawnPoints/Spawn 1")
 
-[node name="Mouse2" parent="Mouse" node_paths=PackedStringArray("spawn_point") instance=ExtResource("1_ys1qc")]
+[node name="Mouse2" parent="Mouse" node_paths=PackedStringArray("spawn_point") instance=ExtResource("6_oovug")]
 position = Vector2(-259, 382)
 spawn_point = NodePath("../../SpawnPoints/Spawn 2")
 
-[node name="Mouse3" parent="Mouse" node_paths=PackedStringArray("spawn_point") instance=ExtResource("1_ys1qc")]
+[node name="Mouse3" parent="Mouse" node_paths=PackedStringArray("spawn_point") instance=ExtResource("6_oovug")]
 position = Vector2(-179, 382)
 spawn_point = NodePath("../../SpawnPoints/Spawn 3")
 
-[node name="Floor2" parent="." instance=ExtResource("9_2cgwh")]
+[node name="Floor2" parent="." instance=ExtResource("7_8i23i")]
 position = Vector2(1715, 458)
 
-[node name="Floor6" parent="." instance=ExtResource("9_2cgwh")]
+[node name="Floor6" parent="." instance=ExtResource("7_8i23i")]
 position = Vector2(1476, 195)
 
-[node name="Wall2" parent="." instance=ExtResource("3_i3aeo")]
+[node name="Wall2" parent="." instance=ExtResource("8_8yhm2")]
 position = Vector2(1214, 447)
 
-[node name="Floor3" parent="." instance=ExtResource("9_2cgwh")]
+[node name="Floor3" parent="." instance=ExtResource("7_8i23i")]
 position = Vector2(-320, 459)
 
-[node name="Wall" parent="." instance=ExtResource("3_i3aeo")]
+[node name="Wall" parent="." instance=ExtResource("8_8yhm2")]
 position = Vector2(-7, 433)
 
 [node name="Tutorial" type="Button" parent="."]
-visible = false
 offset_right = 1198.0
 offset_bottom = 699.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_iaow0")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_qpfo2")
-theme_override_styles/hover = SubResource("StyleBoxFlat_yb21e")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_chwpn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_af3po")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_uy8f0")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_aees8")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_mie3u")
 
 [node name="Sprite2D" type="Sprite2D" parent="Tutorial"]
-position = Vector2(746, 387)
-scale = Vector2(0.27710277, 0.27160057)
-texture = ExtResource("7_5wyu1")
+position = Vector2(544, 168)
+scale = Vector2(0.20397192, 0.20662183)
+texture = ExtResource("9_pjppf")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Tutorial"]
-position = Vector2(322.75, 172.625)
-scale = Vector2(1.8339843, 223.24998)
+position = Vector2(247.50002, 140.5)
+scale = Vector2(1.3164064, 149)
 texture = SubResource("GradientTexture1D_qpfo2")
 
 [node name="Label" type="Label" parent="Tutorial"]
 layout_mode = 0
-offset_left = 88.499985
-offset_top = 62.249992
-offset_right = 557.5
-offset_bottom = 282.25
-theme_override_fonts/font = ExtResource("8_0c07c")
-theme_override_font_sizes/font_size = 25
+offset_left = 79.499985
+offset_top = 67.24998
+offset_right = 418.0
+offset_bottom = 218.0
+theme_override_fonts/font = ExtResource("10_yltlr")
+theme_override_font_sizes/font_size = 20
 text = "Ceci est un test"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -171,7 +164,7 @@ offset_left = 91.0
 offset_top = 527.0
 offset_right = 510.0
 offset_bottom = 590.0
-theme_override_fonts/font = ExtResource("8_0c07c")
+theme_override_fonts/font = ExtResource("10_yltlr")
 text = "Press anywhere to continue ..."
 horizontal_alignment = 1
 vertical_alignment = 1

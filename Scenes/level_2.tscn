@@ -1,122 +1,179 @@
-[gd_scene load_steps=9 format=3 uid="uid://b1ayyvbun0r3x"]
+[gd_scene load_steps=17 format=3 uid="uid://b1ayyvbun0r3x"]
 
 [ext_resource type="Script" uid="uid://cm06sinuw8vk8" path="res://Scripts/manager.gd" id="1_2mgoq"]
 [ext_resource type="PackedScene" uid="uid://bkx5sofqgf427" path="res://Assets/floor.tscn" id="2_uhnj4"]
 [ext_resource type="PackedScene" uid="uid://bfkao1452k3ka" path="res://Assets/wall.tscn" id="3_42uki"]
-[ext_resource type="PackedScene" uid="uid://bdo0hm65pemj2" path="res://Assets/platform.tscn" id="4_t7v2y"]
 [ext_resource type="PackedScene" uid="uid://86pndnv3ubws" path="res://character.tscn" id="5_ait6c"]
 [ext_resource type="PackedScene" uid="uid://dhhdiabd2m5sf" path="res://Assets/cheese.tscn" id="6_vcilj"]
 [ext_resource type="Texture2D" uid="uid://gnwjxiak7c4c" path="res://Textures/mousefssb.png" id="7_bl0du"]
+[ext_resource type="PackedScene" uid="uid://8j1q2r63qjfe" path="res://Assets/brick_platform.tscn" id="7_t7v2y"]
 [ext_resource type="FontFile" uid="uid://bqiu1vk0wta86" path="res://font.ttf" id="8_q0ycs"]
+[ext_resource type="PackedScene" uid="uid://371la3duu8nb" path="res://Assets/platform_2_blocks.tscn" id="9_uhnj4"]
 
-[node name="Scene" type="Node2D" node_paths=PackedStringArray("mouse_list", "platform_list", "cheese_list", "tutorial", "label")]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uhnj4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_42uki"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t7v2y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aees8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mie3u"]
+
+[sub_resource type="Gradient" id="Gradient_iaow0"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qpfo2"]
+gradient = SubResource("Gradient_iaow0")
+
+[node name="Scene" type="Node2D" node_paths=PackedStringArray("mouse_list", "platform_list", "cheese_list", "tutorial", "label", "cheese_spawns_one", "cheese_spawns_two", "cheese_spawns_three")]
 script = ExtResource("1_2mgoq")
-mouse_list = [NodePath("Mouse"), NodePath("Mouse2"), NodePath("Mouse3")]
+mouse_list = [NodePath("Mouse/Mouse"), NodePath("Mouse/Mouse2"), NodePath("Mouse/Mouse3")]
 platform_list = [NodePath("Platform"), NodePath("Platform2")]
 cheese_list = [NodePath("Cheese/Cheese 1"), NodePath("Cheese/Cheese 2"), NodePath("Cheese/Cheese 3")]
-tutorial = NodePath("Button2")
-label = NodePath("Button2/Label")
+tutorial = NodePath("Tutorial")
+label = NodePath("Tutorial/Label")
+cheese_spawns_one = [NodePath("SpawnPoints/Cheese 1")]
+cheese_spawns_two = [NodePath("SpawnPoints/Cheese 1"), NodePath("SpawnPoints/Cheese 2")]
+cheese_spawns_three = [NodePath("SpawnPoints/Cheese 1"), NodePath("SpawnPoints/Cheese 2"), NodePath("SpawnPoints/Cheese 3")]
+dialog_path = "res://Scenes/level_2_dialog.json"
+current_scene = "res://Scenes/level_2.tscn"
 metadata/movie_file = "C:\\Users\\esteb\\Desktop\\mini-jam-197\\demo.avi"
 
+[node name="Cheese" type="Node2D" parent="."]
+
+[node name="Cheese 1" parent="Cheese" instance=ExtResource("6_vcilj")]
+position = Vector2(1566, 373)
+metadata/cheese = true
+
+[node name="Cheese 2" parent="Cheese" instance=ExtResource("6_vcilj")]
+visibility_layer = 2
+position = Vector2(1357, 112)
+metadata/cheese = true
+
+[node name="Cheese 3" parent="Cheese" instance=ExtResource("6_vcilj")]
+position = Vector2(1357, 373)
+metadata/cheese = true
+
 [node name="Floor" parent="." instance=ExtResource("2_uhnj4")]
-position = Vector2(166, 688)
-
-[node name="Wall" parent="." instance=ExtResource("3_42uki")]
-position = Vector2(-7, 433)
-
-[node name="Wall2" parent="." instance=ExtResource("3_42uki")]
-position = Vector2(1214, 447)
-
-[node name="Wall3" parent="." instance=ExtResource("3_42uki")]
-position = Vector2(50, 485)
-rotation = 1.5707964
-
-[node name="Wall4" parent="." instance=ExtResource("3_42uki")]
-position = Vector2(925, 485)
-rotation = 1.5707964
-
-[node name="Wall5" parent="." instance=ExtResource("3_42uki")]
-position = Vector2(919, 287)
-rotation = 1.5707964
-
-[node name="Mouse" parent="." node_paths=PackedStringArray("spawn_point") instance=ExtResource("5_ait6c")]
-position = Vector2(-160, 210)
-spawn_point = NodePath("../SpawnPoints/Spawn 1")
-
-[node name="Mouse2" parent="." node_paths=PackedStringArray("spawn_point") instance=ExtResource("5_ait6c")]
-position = Vector2(-159, 422)
-spawn_point = NodePath("../SpawnPoints/Spawn 2")
-
-[node name="Mouse3" parent="." node_paths=PackedStringArray("spawn_point") instance=ExtResource("5_ait6c")]
-position = Vector2(-79, 422)
-going_right = false
-spawn_point = NodePath("../SpawnPoints/Spawn 3")
+position = Vector2(55, 697)
 
 [node name="SpawnPoints" type="Node" parent="."]
 
 [node name="Spawn 3" type="Node2D" parent="SpawnPoints"]
-position = Vector2(916, 248)
+position = Vector2(640, 200)
 
 [node name="Spawn 2" type="Node2D" parent="SpawnPoints"]
-position = Vector2(1102, 444)
+position = Vector2(1040, 400)
 
 [node name="Spawn 1" type="Node2D" parent="SpawnPoints"]
-position = Vector2(187, 636)
+position = Vector2(240, 600)
 
-[node name="Cheese" type="Node" parent="."]
+[node name="Platform 1" type="Node2D" parent="SpawnPoints"]
+position = Vector2(426, 345)
 
-[node name="Cheese 1" parent="Cheese" instance=ExtResource("6_vcilj")]
-position = Vector2(60, 636)
-metadata/cheese = true
+[node name="Platform 2" type="Node2D" parent="SpawnPoints"]
+position = Vector2(530, 345)
 
-[node name="Cheese 2" parent="Cheese" instance=ExtResource("6_vcilj")]
-position = Vector2(68, 224)
-metadata/cheese = true
+[node name="Cheese 1" type="Node2D" parent="SpawnPoints"]
+position = Vector2(120, 620)
 
-[node name="Cheese 3" parent="Cheese" instance=ExtResource("6_vcilj")]
-position = Vector2(66, 424)
-metadata/cheese = true
+[node name="Cheese 2" type="Node2D" parent="SpawnPoints"]
+position = Vector2(120, 420)
 
-[node name="Button" type="Button" parent="."]
-offset_left = 100.0
-offset_top = 40.0
-offset_right = 207.0
-offset_bottom = 127.0
+[node name="Cheese 3" type="Node2D" parent="SpawnPoints"]
+position = Vector2(120, 220)
+
+[node name="Reset" type="Button" parent="."]
+offset_left = 960.0
+offset_top = 50.0
+offset_right = 1067.0
+offset_bottom = 137.0
+theme_override_fonts/font = ExtResource("8_q0ycs")
 text = "RESET"
 
-[node name="Button2" type="Button" parent="."]
-visible = false
+[node name="Mouse" type="Node2D" parent="."]
+
+[node name="Mouse" parent="Mouse" node_paths=PackedStringArray("spawn_point") instance=ExtResource("5_ait6c")]
+position = Vector2(-331, 381)
+spawn_point = NodePath("../../SpawnPoints/Spawn 1")
+
+[node name="Mouse2" parent="Mouse" node_paths=PackedStringArray("spawn_point") instance=ExtResource("5_ait6c")]
+position = Vector2(-259, 382)
+spawn_point = NodePath("../../SpawnPoints/Spawn 2")
+
+[node name="Mouse3" parent="Mouse" node_paths=PackedStringArray("spawn_point") instance=ExtResource("5_ait6c")]
+position = Vector2(-179, 382)
+going_right = false
+spawn_point = NodePath("../../SpawnPoints/Spawn 3")
+
+[node name="Floor2" parent="." instance=ExtResource("7_t7v2y")]
+position = Vector2(1380, 495)
+
+[node name="Floor6" parent="." instance=ExtResource("7_t7v2y")]
+position = Vector2(1377, 295)
+
+[node name="Wall2" parent="." instance=ExtResource("3_42uki")]
+position = Vector2(1214, 447)
+
+[node name="Floor3" parent="." instance=ExtResource("7_t7v2y")]
+position = Vector2(-318, 495)
+
+[node name="Floor4" parent="." instance=ExtResource("7_t7v2y")]
+position = Vector2(-420, 295)
+
+[node name="Wall" parent="." instance=ExtResource("3_42uki")]
+position = Vector2(-7, 433)
+
+[node name="Platform" parent="." instance=ExtResource("9_uhnj4")]
+position = Vector2(426, 345)
+
+[node name="Platform2" parent="." instance=ExtResource("9_uhnj4")]
+position = Vector2(530, 345)
+
+[node name="Tutorial" type="Button" parent="."]
 offset_right = 1198.0
 offset_bottom = 699.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_uhnj4")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_42uki")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_t7v2y")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_aees8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mie3u")
 
-[node name="Sprite2D" type="Sprite2D" parent="Button2"]
-position = Vector2(746, 387)
-scale = Vector2(0.27710277, 0.27160057)
+[node name="Sprite2D" type="Sprite2D" parent="Tutorial"]
+position = Vector2(665, 125.00001)
+scale = Vector2(0.12903033, 0.121945806)
 texture = ExtResource("7_bl0du")
 
-[node name="Label" type="Label" parent="Button2"]
+[node name="Sprite2D2" type="Sprite2D" parent="Tutorial"]
+position = Vector2(341.99997, 116.5)
+scale = Vector2(1.7421874, 146.99997)
+texture = SubResource("GradientTexture1D_qpfo2")
+
+[node name="Label" type="Label" parent="Tutorial"]
 layout_mode = 0
-offset_left = 226.0
-offset_top = 49.0
-offset_right = 623.0
-offset_bottom = 347.0
+offset_left = 119.0
+offset_top = 43.0
+offset_right = 565.0
+offset_bottom = 190.0
 theme_override_fonts/font = ExtResource("8_q0ycs")
+theme_override_font_sizes/font_size = 25
 text = "Ceci est un test"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 
-[node name="Wall6" parent="." instance=ExtResource("3_42uki")]
-position = Vector2(-52, 287)
-rotation = 1.5707964
+[node name="Label2" type="Label" parent="Tutorial"]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 180.0
+offset_right = 560.0
+offset_bottom = 243.0
+theme_override_fonts/font = ExtResource("8_q0ycs")
+text = "Press anywhere to continue ..."
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Platform" parent="." instance=ExtResource("4_t7v2y")]
-position = Vector2(633, 365)
-scale = Vector2(1, 2)
-
-[node name="Platform2" parent="." instance=ExtResource("4_t7v2y")]
-position = Vector2(531, 315)
-
-[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
-[connection signal="button_down" from="Button2" to="." method="start_stage"]
-
-[editable path="Platform"]
+[connection signal="button_down" from="Reset" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="Tutorial" to="." method="start_stage"]

@@ -11,45 +11,39 @@ var playing = false
 @export var cheese_spawns_one: Array[Node2D]
 @export var cheese_spawns_two: Array[Node2D]
 @export var cheese_spawns_three: Array[Node2D]
+@export var dialog_path: String
+@export var current_scene: String
 
 var cheese_out_of_vision = []
 var cheese_spawns_list = []
 
 var currentDialog = 0
-var dialog = [
-	[
-		"Hello there !",
-		"Nice to meet you,\n fellow mouse",
-		"I need your help !\nA time fracture occured,\nbecause...",
-		"Well, you don't need to know yet...\nBut my friends have been scattered in time !",
-		"And we lost all our cheese...\nCould you help us out ?",
-		"You just need to control the platform at the right time.\nTry getting that top piece",
-		"You can move blue blocks vertically. Show me your talents !"
-	],
-	
-	[
-		"Great !",
-		"But wait ... Another friend of mine appeared ... And the first one came back",
-		"I think this is a new kind of anomaly ...\nWhat happens now",
-	],
-	[
-		"Interesting ... you did not move that block this time, right ?",
-		"It seems your actions on the timeline we were on a second ago carried out to this one ...",
-		"And now yet another timeline has been created ... Try getting that last piece of cheese now !",
-		"You can move yellow blocks horizontally ... Give it a try !"
-	],
-	[
-		"All done!\nYou are truly a genius !"
-	]
-]
+var dialog = []
+
+var next_path = ""
+var platform_speed = 1.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	var file = FileAccess.open(dialog_path, FileAccess.READ)
+	var content = file.get_as_text()
+	var json = JSON.new()
+	var error = json.parse(content)
+	if error == OK:
+		dialog = json.data.dialog
+		next_path = json.data.next_level
+		platform_speed = json.data.speed
+	else:
+		print("ERROR WHILE PARSING DIALOG")
+	
 	tutorial.set_visible(true)
 	mouse_list[0].move_to_spawn()
 	
 	for cheese in cheese_list:
 		cheese_out_of_vision.append(cheese.position)
+		
+	for platform in platform_list:
+		platform.platform_speed = platform_speed
 	
 	cheese_spawns_list.append(cheese_spawns_one)
 	cheese_spawns_list.append(cheese_spawns_two)
@@ -64,6 +58,7 @@ func _ready() -> void:
 
 func start_stage():
 	if stage + 1 == len(dialog) and currentDialog == len(dialog[stage]):
+		get_tree().change_scene_to_file(next_path)
 		return
 
 	if stage < len(dialog) and currentDialog < len(dialog[stage]):
@@ -91,14 +86,14 @@ func _process(delta: float) -> void:
 	if stage >= 3:
 		return
 	
-	cumul += delta
-	if cumul > 3.0:
-		print()
-		print("Mouse 1 ", mouse_list[0].foundCheese)
-		print("Mouse 2 ", mouse_list[1].foundCheese)
-		print("Mouse 3 ", mouse_list[2].foundCheese)
-		print()
-		cumul = 0
+	#cumul += delta
+	#if cumul > 3.0:
+		#print()
+		#print("Mouse 1 ", mouse_list[0].foundCheese)
+		#print("Mouse 2 ", mouse_list[1].foundCheese)
+		#print("Mouse 3 ", mouse_list[2].foundCheese)
+		#print()
+		#cumul = 0
 		
 	if playing and mouse_list.all(func(m): return m.foundCheese):
 		print("all the cheese was found")
@@ -133,4 +128,4 @@ func _process(delta: float) -> void:
 		tutorial.set_visible(true)
 
 func _on_button_button_down() -> void:
-	get_tree().change_scene_to_file("res://Scenes/test.tscn")
+	get_tree().change_scene_to_file(current_scene)

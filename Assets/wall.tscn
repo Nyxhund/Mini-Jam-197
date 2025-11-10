@@ -7,10 +7,6 @@ size = Vector2(100, 1301)
 
 [node name="Wall" type="StaticBody2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -0.5)
-shape = SubResource("RectangleShape2D_oh6kn")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-7.987022e-06, 0)
 scale = Vector2(0.01666667, 0.016749995)
@@ -75,3 +71,8 @@ texture = ExtResource("1_vnsvt")
 position = Vector2(2.2888184e-05, 100.249985)
 scale = Vector2(0.01666667, 0.016749995)
 texture = ExtResource("1_vnsvt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_oh6kn")

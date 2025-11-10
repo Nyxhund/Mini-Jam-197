@@ -1,0 +1,32 @@
+{
+	"dialog": [
+		[
+			"Hello there !",
+			"Nice to meet you,\n fellow mouse",
+			"I need your help !\nA time fracture occured,\nbecause...",
+			"Well, you don't need to know yet...\nBut my friends have been scattered in time !",
+			"And we lost all our cheese...\nCould you help us out ?",
+			"You just need to control the platform at the right time.\nTry getting that top piece",
+			"You can move blue blocks vertically. Show me your talents !"
+		],
+		
+		[
+			"Great !",
+			"But wait ... Another friend of mine appeared ... And the first one came back",
+			"I think this is a new kind of anomaly ...\nWhat happens now",
+		],
+		[
+			"Interesting ... you did not move that block this time, right ?",
+			"It seems your actions on the timeline we were on a second ago carried out to this one ...",
+			"And now yet another timeline has been created ... Try getting that last piece of cheese now !",
+			"You can move yellow blocks horizontally ... Give it a try !"
+		],
+		[
+			"All done!\nYou are truly a genius !",
+			"We can move on now, I do not sense any new cheese here. Let's keep looking !"
+		]
+	],
+	
+	"next_level": "res://Scenes/level_2.tscn",
+	"speed": 1.0
+}

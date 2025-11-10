@@ -9,6 +9,7 @@ var recording = true
 var commit = false
 var placement = []
 var index = 0
+var platform_speed = 1.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -45,7 +46,9 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				mult = 1
 
 			if recording:
-				move_and_collide(Vector2((1 - mult) * (event.position.x - prevPosition.x), mult * (event.position.y - prevPosition.y)))
+				#print("Event position ", event.position)
+				#print("Prev position ", prevPosition)
+				move_and_collide(platform_speed * Vector2((1 - mult) * (event.position.x - prevPosition.x), mult * (event.position.y - prevPosition.y)))
 				prevPosition = event.position
 	
 	if event.is_action_pressed("left_click"):

@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Mini Jam 197"
+config/name="A mouse through time"
+run/main_scene="uid://bgg4nom07klya"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -18,6 +19,12 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=1200
 window/size/viewport_height=700
+window/size/resizable=false
+
+[gui]
+
+theme/name="Mini Jam 197"
+theme/size/resizable=true
 
 [input]
 
@@ -35,3 +42,7 @@ mouse_moving={
 "deadzone": 0.2,
 "events": []
 }
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0.47743344, 0.7512467, 1, 1)

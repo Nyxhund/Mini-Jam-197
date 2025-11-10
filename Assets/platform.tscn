@@ -12,12 +12,13 @@ sync_to_physics = false
 script = ExtResource("1_mi635")
 vertical_movement = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_5ajho")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2.861023e-06, 1.9073486e-06)
 scale = Vector2(0.016666666, 0.016666666)
 texture = ExtResource("2_o164v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_5ajho")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

@@ -1,0 +1,19 @@
+{
+	"next_level": "res://Scenes/level_3.tscn",
+	"speed": 2.5,
+	"dialog": [
+	[
+		"We are so sky high right now ! Quite crazy !",
+	],
+	
+	[
+		"OK that seems fine",
+	],
+	[
+		"Keep it going",
+	],
+	[
+		"All done! Congrats !",
+	]
+]
+}

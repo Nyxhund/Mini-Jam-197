@@ -1,0 +1,26 @@
+{
+	"next_level": "res://Scenes/level_4.tscn",
+	"speed": 1.0,
+	"dialog": [
+	[
+		"Oh no ! He is going to fall in that hole !",
+		"Ok so... My friends are not the brightest, so what ?",
+		"He will only turn if he cannot go further, if he hits the wall...",
+		"If you don't manage to save him, reset the timeline with this handy button...",
+		"You will have to hear me yap all over again, sorry ! ;)",
+		"Could you help him out ?"
+	],
+	
+	[
+		"Great ! You even managed to get an extra piece of cheese !",
+		"But heres the anomaly again... This is really scaring me...",
+	],
+	[
+		"That's... a new place to spawn...",
+		"Has your previoous actions broken the possible path ? You can always reset time !"
+	],
+	[
+		"All done!\nYou are truly a genius !"
+	]
+]
+}

@@ -6,6 +6,7 @@ extends CharacterBody2D
 const SPEED = 150.0
 var direction = 1.0
 var foundCheese = true
+var idle = false
 var bufferPlace = null
 
 func _ready() -> void:
@@ -45,11 +46,12 @@ func _physics_process(delta: float) -> void:
 
 			# with a movable platform object, check if it is moving
 			
-			if node and node is AnimatableBody2D:
-				
-				if  node.buttonPressed:
-					velocity = Vector2(0, 0)
-					#print("Collision with animatable ", node.buttonPressed)
+			if node and node is AnimatableBody2D and node.buttonPressed:
+				velocity = Vector2(0, 0)
+				idle = true
+				#print("Collision with animatable ", node.buttonPressed)
+			else:
+				idle = false
 			
 			if node and node.has_meta("cheese") and node.get_meta("cheese"):
 				foundCheese = true
@@ -57,3 +59,26 @@ func _physics_process(delta: float) -> void:
 				node.get_node("CollisionShape2D").set_disabled(true)
 				$CollisionShape2D.set_disabled(true)
 	move_and_slide()
+	
+var walking_index = 0
+var idle_index = 0
+const walking_max_frames = 11
+const idle_max_frames = 12
+var delta_anim = 0
+
+func _process(delta: float) -> void:
+	$Idle.set_visible(idle or foundCheese)
+	$Walking.set_visible(not (idle or foundCheese))
+	
+	delta_anim += delta
+	$Walking.set_flip_h(direction < 0.0)
+	
+	if delta_anim > 0.05:
+		$Walking.set_frame(walking_index)
+		walking_index += 1
+		walking_index = walking_index % walking_max_frames
+		
+		$Idle.set_frame(idle_index)
+		idle_index += 1
+		idle_index = idle_index % idle_max_frames
+		delta_anim = 0

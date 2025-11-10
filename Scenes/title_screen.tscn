@@ -1,36 +1,46 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgg4nom07klya"]
+[gd_scene load_steps=5 format=3 uid="uid://bgg4nom07klya"]
 
-[ext_resource type="Script" uid="uid://8efmlm3har87" path="res://Scenes/start_button.gd" id="1_klylv"]
+[ext_resource type="Texture2D" uid="uid://dxkb6l3l4lm6y" path="res://Textures/Home page.png" id="1_4gxqj"]
+[ext_resource type="Script" uid="uid://8efmlm3har87" path="res://Scripts/start_button.gd" id="1_klylv"]
+[ext_resource type="FontFile" uid="uid://bqiu1vk0wta86" path="res://font.ttf" id="1_p3fck"]
 
-[sub_resource type="Gradient" id="Gradient_p3fck"]
-offsets = PackedFloat32Array(0, 0.9268293)
-colors = PackedColorArray(0, 0.1333332, 1, 1, 0.7397945, 0, 0.008640336, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_4gxqj"]
-gradient = SubResource("Gradient_p3fck")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4gxqj"]
+bg_color = Color(0.98039216, 0.91764706, 0.6862745, 1)
 
 [node name="Node2D" type="Node2D"]
+metadata/movie_file = "C:\\Users\\esteb\\Desktop\\mini-jam-197\\demo.avi"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(601.5, 350.25)
-scale = Vector2(4.6835938, 701.5)
-texture = SubResource("GradientTexture1D_4gxqj")
-
-[node name="Label" type="Label" parent="."]
-offset_left = -1.0
-offset_right = 1200.0
-offset_bottom = 335.0
-text = "A mouse through time ??"
-horizontal_alignment = 1
-vertical_alignment = 1
-uppercase = true
+position = Vector2(-39, -170)
+texture = ExtResource("1_4gxqj")
+centered = false
 
 [node name="Button" type="Button" parent="."]
-offset_left = 375.0
-offset_top = 401.0
-offset_right = 494.0
-offset_bottom = 515.0
+offset_left = 4243.0
+offset_top = 2152.0
+offset_right = 5446.0
+offset_bottom = 2886.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_p3fck")
+theme_override_font_sizes/font_size = 200
+theme_override_styles/normal = SubResource("StyleBoxFlat_4gxqj")
 text = "Start"
 script = ExtResource("1_klylv")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+zoom = Vector2(0.195, 0.195)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 11.0
+offset_top = 102.0
+offset_right = 4555.0
+offset_bottom = 990.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_p3fck")
+theme_override_font_sizes/font_size = 300
+text = "A mouse
+through time"
+horizontal_alignment = 2
 
 [connection signal="button_down" from="Button" to="Button" method="_on_button_down"]

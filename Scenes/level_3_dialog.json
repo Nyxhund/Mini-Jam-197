@@ -1,0 +1,21 @@
+{
+	"next_level": "res://Scenes/final_screen.tscn",
+	"speed": 2.5,
+	"dialog": [
+	[
+		"OK things are serious now... Will you manage to find the three paths ?",
+	],
+	
+	[
+		"That's one down. How about the second one ?",
+	],
+	[
+		"That looks... annoying...",
+		"Who designed this ??"
+	],
+	[
+		"All done! Congrats !",
+		"Let's keep this going !"
+	]
+]
+}

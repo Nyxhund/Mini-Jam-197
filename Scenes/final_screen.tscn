@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1i1pnfou2tch"]
+
+[ext_resource type="Texture2D" uid="uid://dxkb6l3l4lm6y" path="res://Textures/Home page.png" id="1_wshgw"]
+[ext_resource type="FontFile" uid="uid://bqiu1vk0wta86" path="res://font.ttf" id="2_wpex3"]
+
+[node name="Node2D" type="Node2D"]
+metadata/movie_file = "C:\\Users\\esteb\\Desktop\\mini-jam-197\\demo.avi"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-39, -170)
+texture = ExtResource("1_wshgw")
+centered = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+zoom = Vector2(0.195, 0.195)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 11.0
+offset_top = 102.0
+offset_right = 4555.0
+offset_bottom = 990.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_wpex3")
+theme_override_font_sizes/font_size = 300
+text = "A mouse
+through time"
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 2282.0
+offset_top = 3098.0
+offset_right = 6075.0
+offset_bottom = 4024.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_wpex3")
+theme_override_font_sizes/font_size = 160
+text = "That's all for now folks !
+Hope you enjoyed !"
+horizontal_alignment = 2

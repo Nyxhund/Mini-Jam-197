@@ -1,0 +1,299 @@
+[gd_scene load_steps=21 format=3 uid="uid://dn3twvnsmg4d1"]
+
+[ext_resource type="Script" uid="uid://cm06sinuw8vk8" path="res://Scripts/manager.gd" id="1_l4wr6"]
+[ext_resource type="PackedScene" uid="uid://dhhdiabd2m5sf" path="res://Assets/cheese.tscn" id="2_5rvg2"]
+[ext_resource type="FontFile" uid="uid://bqiu1vk0wta86" path="res://font.ttf" id="4_c81s1"]
+[ext_resource type="PackedScene" uid="uid://86pndnv3ubws" path="res://character.tscn" id="5_n4vm5"]
+[ext_resource type="Texture2D" uid="uid://ccilve6im406q" path="res://Textures/brickyellow.png" id="6_n4vm5"]
+[ext_resource type="PackedScene" uid="uid://bfkao1452k3ka" path="res://Assets/wall.tscn" id="7_xjeco"]
+[ext_resource type="PackedScene" uid="uid://cdrqmblhq4dxq" path="res://Assets/3_blocks_wall.tscn" id="8_5rvg2"]
+[ext_resource type="PackedScene" uid="uid://dtyxrifcwf66v" path="res://Assets/3_blocks_floor.tscn" id="9_jtv8s"]
+[ext_resource type="Texture2D" uid="uid://gnwjxiak7c4c" path="res://Textures/mousefssb.png" id="9_ki8bc"]
+[ext_resource type="PackedScene" uid="uid://cl5p167q0i2j6" path="res://Assets/5_brick_platform.tscn" id="10_fxnjf"]
+[ext_resource type="PackedScene" uid="uid://bfuxq87ap2hf4" path="res://Assets/platform_2_horizontal.tscn" id="11_xjeco"]
+[ext_resource type="PackedScene" uid="uid://bdo0hm65pemj2" path="res://Assets/platform.tscn" id="12_j77fg"]
+[ext_resource type="PackedScene" uid="uid://dxdhf3nvd58hv" path="res://Assets/1_brick_platform.tscn" id="13_ki8bc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c81s1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n4vm5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fxnjf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aees8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mie3u"]
+
+[sub_resource type="Gradient" id="Gradient_iaow0"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qpfo2"]
+gradient = SubResource("Gradient_iaow0")
+
+[node name="Scene" type="Node2D" node_paths=PackedStringArray("mouse_list", "platform_list", "cheese_list", "tutorial", "label", "cheese_spawns_one", "cheese_spawns_two", "cheese_spawns_three")]
+script = ExtResource("1_l4wr6")
+mouse_list = [NodePath("Mouse/Mouse"), NodePath("Mouse/Mouse2"), NodePath("Mouse/Mouse3")]
+platform_list = [NodePath("Platform"), NodePath("Platform2"), NodePath("Platform4"), NodePath("Platform3"), NodePath("Platform6")]
+cheese_list = [NodePath("Cheese/Cheese 1"), NodePath("Cheese/Cheese 2"), NodePath("Cheese/Cheese 3")]
+tutorial = NodePath("Tutorial")
+label = NodePath("Tutorial/Label")
+cheese_spawns_one = [NodePath("SpawnPoints/Cheese 1")]
+cheese_spawns_two = [NodePath("SpawnPoints/Cheese 1"), NodePath("SpawnPoints/Cheese 2")]
+cheese_spawns_three = [NodePath("SpawnPoints/Cheese 1"), NodePath("SpawnPoints/Cheese 2"), NodePath("SpawnPoints/Cheese 3")]
+dialog_path = "res://Scenes/level_3_dialog.json"
+current_scene = "res://Scenes/level_3.tscn"
+metadata/movie_file = "C:\\Users\\esteb\\Desktop\\mini-jam-197\\demo.avi"
+
+[node name="Rest" type="Button" parent="."]
+offset_left = 133.0
+offset_top = 177.0
+offset_right = 669.0
+offset_bottom = 501.0
+theme_override_fonts/font = ExtResource("4_c81s1")
+theme_override_font_sizes/font_size = 80
+text = "Reset"
+
+[node name="Cheese" type="Node2D" parent="."]
+
+[node name="Cheese 1" parent="Cheese" instance=ExtResource("2_5rvg2")]
+position = Vector2(2140, 2218)
+scale = Vector2(2, 2)
+metadata/cheese = true
+
+[node name="Cheese 2" parent="Cheese" instance=ExtResource("2_5rvg2")]
+visibility_layer = 2
+position = Vector2(2405, 2223)
+scale = Vector2(2, 2)
+metadata/cheese = true
+
+[node name="Cheese 3" parent="Cheese" instance=ExtResource("2_5rvg2")]
+position = Vector2(2272, 2217)
+scale = Vector2(2, 2)
+metadata/cheese = true
+
+[node name="SpawnPoints" type="Node" parent="."]
+
+[node name="Spawn 3" type="Node2D" parent="SpawnPoints"]
+position = Vector2(1457, 381)
+
+[node name="Spawn 2" type="Node2D" parent="SpawnPoints"]
+position = Vector2(1848, 374)
+
+[node name="Spawn 1" type="Node2D" parent="SpawnPoints"]
+position = Vector2(918, 960)
+
+[node name="Cheese 1" type="Node2D" parent="SpawnPoints"]
+position = Vector2(1260, 1659)
+
+[node name="Cheese 2" type="Node2D" parent="SpawnPoints"]
+position = Vector2(743, 1258)
+
+[node name="Cheese 3" type="Node2D" parent="SpawnPoints"]
+position = Vector2(1394, 131)
+
+[node name="Mouse" type="Node2D" parent="."]
+
+[node name="Mouse" parent="Mouse" node_paths=PackedStringArray("spawn_point") instance=ExtResource("5_n4vm5")]
+position = Vector2(2644, 2224)
+scale = Vector2(2, 2)
+spawn_point = NodePath("../../SpawnPoints/Spawn 1")
+
+[node name="Mouse2" parent="Mouse" node_paths=PackedStringArray("spawn_point") instance=ExtResource("5_n4vm5")]
+position = Vector2(2831, 2213)
+scale = Vector2(2, 2)
+going_right = false
+spawn_point = NodePath("../../SpawnPoints/Spawn 2")
+
+[node name="Mouse3" parent="Mouse" node_paths=PackedStringArray("spawn_point") instance=ExtResource("5_n4vm5")]
+position = Vector2(2743, 2219)
+scale = Vector2(2, 2)
+spawn_point = NodePath("../../SpawnPoints/Spawn 3")
+
+[node name="Platform" parent="." instance=ExtResource("11_xjeco")]
+position = Vector2(1473, 1375)
+vertical_movement = false
+
+[node name="Sprite2D" parent="Platform" index="0"]
+texture = ExtResource("6_n4vm5")
+
+[node name="Sprite2D2" parent="Platform" index="1"]
+texture = ExtResource("6_n4vm5")
+
+[node name="Platform2" parent="." instance=ExtResource("12_j77fg")]
+position = Vector2(1323, 1078)
+
+[node name="Platform4" parent="." instance=ExtResource("12_j77fg")]
+position = Vector2(1105, 1078)
+
+[node name="Platform3" parent="." instance=ExtResource("11_xjeco")]
+position = Vector2(1852, 883)
+vertical_movement = false
+
+[node name="Sprite2D" parent="Platform3" index="0"]
+texture = ExtResource("6_n4vm5")
+
+[node name="Sprite2D2" parent="Platform3" index="1"]
+texture = ExtResource("6_n4vm5")
+
+[node name="Platform6" parent="." instance=ExtResource("12_j77fg")]
+position = Vector2(1597, 373)
+vertical_movement = false
+
+[node name="Sprite2D" parent="Platform6" index="0"]
+texture = ExtResource("6_n4vm5")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+zoom = Vector2(0.4, 0.4)
+
+[node name="Terrain" type="Node2D" parent="."]
+
+[node name="Wall14" parent="Terrain" instance=ExtResource("8_5rvg2")]
+position = Vector2(1541, 161)
+
+[node name="Floor15" parent="Terrain" instance=ExtResource("9_jtv8s")]
+position = Vector2(1325, 261)
+
+[node name="Floor12" parent="Terrain" instance=ExtResource("9_jtv8s")]
+position = Vector2(1921, 475)
+
+[node name="Wall12" parent="Terrain" instance=ExtResource("8_5rvg2")]
+position = Vector2(2421, 575)
+
+[node name="Wall11" parent="Terrain" instance=ExtResource("8_5rvg2")]
+position = Vector2(2521, 575)
+
+[node name="Floor10" parent="Terrain" instance=ExtResource("13_ki8bc")]
+position = Vector2(1916, 775)
+
+[node name="Floor11" parent="Terrain" instance=ExtResource("13_ki8bc")]
+position = Vector2(1811, 775)
+
+[node name="Wall" parent="Terrain" instance=ExtResource("7_xjeco")]
+position = Vector2(2121, 1375)
+
+[node name="Wall7" parent="Terrain" instance=ExtResource("7_xjeco")]
+position = Vector2(2221, 1375)
+
+[node name="Wall8" parent="Terrain" instance=ExtResource("7_xjeco")]
+position = Vector2(2321, 1375)
+
+[node name="Wall9" parent="Terrain" instance=ExtResource("7_xjeco")]
+position = Vector2(2421, 1375)
+
+[node name="Wall10" parent="Terrain" instance=ExtResource("7_xjeco")]
+position = Vector2(2521, 1375)
+
+[node name="Floor" parent="Terrain" instance=ExtResource("13_ki8bc")]
+position = Vector2(1211, 1078)
+
+[node name="Floor6" parent="Terrain" instance=ExtResource("13_ki8bc")]
+position = Vector2(994, 1076)
+
+[node name="Floor19" parent="Terrain" instance=ExtResource("13_ki8bc")]
+position = Vector2(891, 1076)
+
+[node name="Floor8" parent="Terrain" instance=ExtResource("9_jtv8s")]
+position = Vector2(1322, 881)
+
+[node name="Floor9" parent="Terrain" instance=ExtResource("13_ki8bc")]
+position = Vector2(1538, 881)
+
+[node name="Floor14" parent="Terrain" instance=ExtResource("13_ki8bc")]
+position = Vector2(1507, 476)
+
+[node name="Floor16" parent="Terrain" instance=ExtResource("13_ki8bc")]
+position = Vector2(1401, 476)
+
+[node name="Wall6" parent="Terrain" instance=ExtResource("7_xjeco")]
+position = Vector2(2021, 1375)
+
+[node name="Wall15" parent="Terrain" instance=ExtResource("7_xjeco")]
+position = Vector2(1920, 1976)
+
+[node name="Wall16" parent="Terrain" instance=ExtResource("7_xjeco")]
+position = Vector2(1819, 1976)
+
+[node name="Floor2" parent="Terrain" instance=ExtResource("10_fxnjf")]
+position = Vector2(1306, 1875)
+
+[node name="Floor5" parent="Terrain" instance=ExtResource("10_fxnjf")]
+position = Vector2(1306, 1775)
+
+[node name="Wall5" parent="Terrain" instance=ExtResource("8_5rvg2")]
+position = Vector2(1521, 1575)
+
+[node name="Floor3" parent="Terrain" instance=ExtResource("10_fxnjf")]
+position = Vector2(893, 1375)
+
+[node name="Floor4" parent="Terrain" instance=ExtResource("13_ki8bc")]
+position = Vector2(1211, 1375)
+
+[node name="Floor13" parent="Terrain" instance=ExtResource("13_ki8bc")]
+position = Vector2(1317, 1375)
+
+[node name="Floor17" parent="Terrain" instance=ExtResource("9_jtv8s")]
+position = Vector2(1402, 577)
+
+[node name="Wall4" parent="Terrain" instance=ExtResource("7_xjeco")]
+position = Vector2(576, 1976)
+
+[node name="Floor7" parent="Terrain" instance=ExtResource("10_fxnjf")]
+position = Vector2(2120, 2361)
+
+[node name="Floor18" parent="Terrain" instance=ExtResource("10_fxnjf")]
+position = Vector2(2651, 2361)
+
+[node name="Tutorial" type="Button" parent="."]
+visible = false
+offset_left = 5.0
+offset_top = 2.0
+offset_right = 2979.0
+offset_bottom = 1741.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_c81s1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_n4vm5")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_fxnjf")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_aees8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mie3u")
+
+[node name="Sprite2D" type="Sprite2D" parent="Tutorial"]
+position = Vector2(2250, 984)
+scale = Vector2(0.27710277, 0.27160057)
+texture = ExtResource("9_ki8bc")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Tutorial"]
+position = Vector2(2253, 1375.5001)
+scale = Vector2(1.8125001, 306.9999)
+texture = SubResource("GradientTexture1D_qpfo2")
+
+[node name="Label" type="Label" parent="Tutorial"]
+layout_mode = 0
+offset_left = 2021.5
+offset_top = 1223.25
+offset_right = 2490.5
+offset_bottom = 1443.25
+theme_override_fonts/font = ExtResource("4_c81s1")
+theme_override_font_sizes/font_size = 25
+text = "Ceci est un test"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="Tutorial"]
+layout_mode = 0
+offset_left = 2048.0
+offset_top = 1458.0
+offset_right = 2467.0
+offset_bottom = 1521.0
+theme_override_fonts/font = ExtResource("4_c81s1")
+text = "Press anywhere to continue ..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_down" from="Rest" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="Tutorial" to="." method="start_stage"]
+
+[editable path="Platform"]
+[editable path="Platform3"]
+[editable path="Platform6"]

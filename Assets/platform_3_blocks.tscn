@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://ss5mk5tlnfe3"]
+
+[ext_resource type="Script" uid="uid://uq6hn8yw32oh" path="res://Scripts/platform.gd" id="1_evln6"]
+[ext_resource type="Texture2D" uid="uid://x48awtylunpq" path="res://Textures/brickblue.png" id="2_0rl8g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ajho"]
+size = Vector2(100, 300)
+
+[node name="Platform" type="AnimatableBody2D"]
+input_pickable = true
+sync_to_physics = false
+script = ExtResource("1_evln6")
+vertical_movement = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5ajho")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2.861023e-06, 1.9073486e-06)
+scale = Vector2(0.016666666, 0.016666666)
+texture = ExtResource("2_0rl8g")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(2.2737368e-13, -99.99999)
+scale = Vector2(0.016666666, 0.016666666)
+texture = ExtResource("2_0rl8g")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(1.3552527e-20, 99.99999)
+scale = Vector2(0.016666666, 0.016666666)
+texture = ExtResource("2_0rl8g")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
